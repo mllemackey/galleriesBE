@@ -19,3 +19,5 @@ use Illuminate\Http\Request;
 
 Route::get('/galleries', 'GalleryController@index');
 Route::get('/galleries/{id}', 'GalleryController@show');
+Route::get('/users', 'UserController@show');
+Route::get('/users/{id}', 'UserController@show');

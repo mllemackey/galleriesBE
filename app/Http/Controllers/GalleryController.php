@@ -47,7 +47,7 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        return Gallery::find($id);
+        return Gallery::with('user', 'images')->find($id);
     }
 
     /**
