@@ -14,7 +14,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return Gallery::all();
+        return Gallery::with('user', 'images')->get();
+
     }
 
     /**
@@ -44,9 +45,9 @@ class GalleryController extends Controller
      * @param  \App\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function show(Gallery $gallery)
+    public function show($id)
     {
-        //
+        return Gallery::find($id);
     }
 
     /**

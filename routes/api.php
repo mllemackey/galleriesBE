@@ -18,3 +18,4 @@ use Illuminate\Http\Request;
 //});
 
 Route::get('/galleries', 'GalleryController@index');
+Route::get('/galleries/{id}', 'GalleryController@show');
