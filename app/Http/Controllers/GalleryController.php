@@ -36,7 +36,21 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        $gallery = new Gallery();
+//        $images = $request->input('images');
+//
+//        if (!$request->has(['first_name', 'last_name', 'email'])) {
+//            abort(400);
+//        }
+//
+//        $gallery->name = $request->input('name');
+//        $gallery->description = $request->input('description');
+//        $gallery->email = $request->input('email');
+//
+//        $gallery->save();
+//
+//        return $gallery;
+
     }
 
     /**
