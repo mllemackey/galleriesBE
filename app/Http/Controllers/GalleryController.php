@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gallery;
+use App\Image;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -36,21 +37,22 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-//        $gallery = new Gallery();
-//        $images = $request->input('images');
-//
-//        if (!$request->has(['first_name', 'last_name', 'email'])) {
-//            abort(400);
-//        }
-//
-//        $gallery->name = $request->input('name');
-//        $gallery->description = $request->input('description');
-//        $gallery->email = $request->input('email');
-//
-//        $gallery->save();
-//
-//        return $gallery;
 
+        $user = request()->input('user');
+//        \Log::info($user['id']);
+        $gallery = new Gallery;
+        $gallery->name = request()->input('name');
+        $gallery->description = request()->input('description');
+        $gallery->user_id = $user['id'];
+        $gallery->save();
+
+
+        foreach ($request->input('images') as $i) {
+            $image = new Image;
+            $image->gallery_id = $gallery->id;
+            $image->image_url = $i;
+            $image->save();
+        }
     }
 
     /**
